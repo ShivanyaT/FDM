@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FDM Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Frequency-Division Multiplexing (FDM)</h1>
+      <p>Visualize how signals of different frequencies combine into one channel.</p>
+    </header>
+
+    <section class="info-box">
+      <h2>📘 What is FDM?</h2>
+      <p>
+        Frequency-Division Multiplexing (FDM) is a technique where a wider bandwidth is divided into multiple narrower bands, each carrying a separate signal. 
+        This is often combined with Fourier analysis, particularly the Discrete Fourier Transform (DFT) and its efficient implementation, the Fast Fourier Transform (FFT), for digital implementation.
+        In these digital FDM systems, the DFT is used for modulation and demodulation, allowing for the efficient transmission and reception of multiple signals simultaneously on different frequency bands.
+      </p>
+    </section>
+
+    <canvas id="fdmCanvas" width="900" height="400"></canvas>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="freq1" title="Lower frequency signal (e.g., audio channel 1)">
+          🔵 Signal 1 Frequency: <span id="val1">30Hz</span>
+        </label>
+        <input type="range" id="freq1" min="10" max="100" value="30">
+        <label><input type="checkbox" id="toggle1" checked> Show Signal 1</label>
+      </div>
+
+      <div class="control-group">
+        <label for="freq2" title="Mid frequency signal (e.g., audio channel 2)">
+          🟢 Signal 2 Frequency: <span id="val2">60Hz</span>
+        </label>
+        <input type="range" id="freq2" min="10" max="100" value="60">
+        <label><input type="checkbox" id="toggle2" checked> Show Signal 2</label>
+      </div>
+
+      <div class="control-group">
+        <label for="freq3" title="Higher frequency signal (e.g., video signal)">
+          🔴 Signal 3 Frequency: <span id="val3">90Hz</span>
+        </label>
+        <input type="range" id="freq3" min="10" max="100" value="90">
+        <label><input type="checkbox" id="toggle3" checked> Show Signal 3</label>
+      </div>
+
+      <div class="control-group full-width">
+        <label title="Shows the result of adding all active signals together. This is the multiplexed signal sent over the channel.">
+          <input type="checkbox" id="toggleCombined" checked>  Show Combined Signal
+        </label>
+      </div>
+    </div>
+
+    <div class="spectrum-section">
+      <label title="Visualizes the frequency components of the combined signal using a basic Discrete Fourier Transform (DFT)">
+        <input type="checkbox" id="toggleSpectrum" checked> Show Fourier Spectrum
+      </label>
+      <canvas id="spectrumCanvas" width="900" height="200"></canvas>
+    </div>
+
+    <footer>
+      <p>To be reviewed by E.Prasad Sir</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
